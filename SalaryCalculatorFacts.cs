@@ -32,5 +32,12 @@
                 var salary = new SalaryCalculator().Calculate(10000, 3);
                 Assert.Equal(14300, salary);
             }
+
+            [Fact]
+            public void should_have_50_percentage_of_salary_as_bonus_with_4_childs()
+            {
+                var salary = new SalaryCalculator().Calculate(10000, 4);
+                Assert.Equal(15000, salary);
+            }
         }
     }
