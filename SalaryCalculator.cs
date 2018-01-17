@@ -6,7 +6,14 @@ namespace refactoring
     {
         public float Calculate(float salary, int numberOfKids) 
         {
-            return salary;
+            var bonus = 0f;
+
+            if(numberOfKids == 1) 
+            {
+                bonus = salary * 0.25f;
+            }
+        
+            return salary + bonus;
         }
     }
 }
