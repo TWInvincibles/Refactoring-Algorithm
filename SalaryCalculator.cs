@@ -27,6 +27,11 @@ namespace refactoring
             {
                 bonus = salary * 0.5f;
             }
+
+            if(numberOfKids == 5) 
+            {
+                bonus = salary * 0.55f;
+            }
         
             return salary + bonus;
         }
