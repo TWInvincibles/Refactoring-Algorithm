@@ -4,9 +4,9 @@ namespace refactoring
 {
     public class SalaryCalculator 
     {
-        public float Calculate(float salary, int numberOfKids) 
+        float GetBonusRate(int numberOfKids)
         {
-            var bonusRate = 0f;
+             var bonusRate = 0f;
 
             if(numberOfKids == 1) 
             {
@@ -32,8 +32,12 @@ namespace refactoring
             {
                 bonusRate =  0.55f;
             }
-        
-            return salary + salary * bonusRate ;
+            return bonusRate;
+        }
+
+        public float Calculate(float salary, int numberOfKids) 
+        {           
+            return salary + salary * GetBonusRate(numberOfKids) ;
         }
     }
 }
