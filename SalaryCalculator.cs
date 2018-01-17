@@ -6,33 +6,8 @@ namespace refactoring
     {
         float GetBonusRate(int numberOfKids)
         {
-             var bonusRate = 0f;
-
-            if(numberOfKids == 1) 
-            {
-                bonusRate = 0.25f;
-            }
-
-            if(numberOfKids == 2) 
-            {
-                bonusRate = 0.35f;
-            }
-
-            if(numberOfKids == 3) 
-            {
-                bonusRate = 0.43f;
-            }
-
-            if(numberOfKids == 4) 
-            {
-                bonusRate = 0.5f;
-            }
-
-            if(numberOfKids == 5) 
-            {
-                bonusRate =  0.55f;
-            }
-            return bonusRate;
+            var bonusRates = new float [] {0f, 0.25f, 0.35f, 0.43f, 0.5f, 0.55f};
+            return bonusRates[numberOfKids];
         }
 
         public float Calculate(float salary, int numberOfKids) 
