@@ -1,7 +1,9 @@
+using System;
+
 namespace refactoring {
     public class AccountDataProvider {
         public Account GetAccount (int id) {
-            return new Account ();
+            return new Account ("Martin");
         }
     }
 }

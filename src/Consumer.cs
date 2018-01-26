@@ -1,3 +1,5 @@
+using System;
+
 namespace refactoring {
 
     public class Consumer {
@@ -7,12 +9,14 @@ namespace refactoring {
             AccountManager = accountManager;
         }
 
-        public void Get (int id) {
-            Account account = AccountManager.GetAccount (id);
+        public Account Get (int id) {
+            return AccountManager.GetAccount (id);
         }
     }
 
     public class Account {
-        public Account () { }
+        public Account(string userName) => UserName = userName;
+
+        public string UserName { get; }
     }
 }
