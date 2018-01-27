@@ -3,19 +3,19 @@ using System;
 namespace refactoring {
 
     public class Consumer {
-        public AccountManager AccountManager { get; set; }
+        private readonly AccountDataProvider accountDataProvider;
 
-        public Consumer (AccountManager accountManager) {
-            AccountManager = accountManager;
+        public Consumer (AccountDataProvider accountDataProvider) {
+            this.accountDataProvider = accountDataProvider;
         }
 
         public Account Get (int id) {
-            return AccountManager.GetAccount (id);
+            return accountDataProvider.GetAccount (id);
         }
     }
 
     public class Account {
-        public Account(string userName) => UserName = userName;
+        public Account (string userName) => UserName = userName;
 
         public string UserName { get; }
     }
