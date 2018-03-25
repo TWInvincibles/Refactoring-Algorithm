@@ -2,11 +2,11 @@ using System;
 
 namespace refactoring {
     public class Employee {
-        public Employee (int type) {
-            _type = type;
+        public Employee (int employeeType) {
+            this.employeeType = employeeType;
         }
 
-        private int _type;
+        private int employeeType;
         public const int ENGINEER = 0;
         public const int SALESMAN = 1;
         public const int MANAGER = 2;
@@ -16,7 +16,7 @@ namespace refactoring {
         public int Bonus { get; set; }
 
         public int GetPayroll () {
-            switch (_type) {
+            switch (employeeType) {
                 case ENGINEER:
                     return MonthlySalary;
                 case SALESMAN:
