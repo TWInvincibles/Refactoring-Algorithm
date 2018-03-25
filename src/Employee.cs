@@ -7,9 +7,9 @@ namespace refactoring {
         }
 
         private int _type;
-        const int ENGINEER = 0;
-        const int SALESMAN = 1;
-        const int MANAGER = 2;
+        public const int ENGINEER = 0;
+        public const int SALESMAN = 1;
+        public const int MANAGER = 2;
 
         public int MonthlySalary { get; set; }
         public int Commission { get; set; }
