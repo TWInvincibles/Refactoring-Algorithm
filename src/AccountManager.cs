@@ -1,13 +1,13 @@
 namespace refactoring {
     public class AccountManager {
-        public AccountDataProvider DataProvider { get; set; }
+        public AccountDataProvider dataProvider { get; set; }
 
         public AccountManager (AccountDataProvider dataProvider) {
-            DataProvider = dataProvider;
+            this.dataProvider = dataProvider;
         }
 
         public Account GetAccount (int id) {
-            return DataProvider.GetAccount (id);
+            return dataProvider.GetAccount (id);
         }
     }
 

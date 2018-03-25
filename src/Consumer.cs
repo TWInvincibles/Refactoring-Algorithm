@@ -3,14 +3,14 @@ using System;
 namespace refactoring {
 
     public class Consumer {
-        public AccountManager AccountManager { get; set; }
+    public AccountManager accountManager { get; set; }
 
         public Consumer (AccountManager accountManager) {
-            AccountManager = accountManager;
+            this.accountManager = accountManager;
         }
 
         public Account Get (int id) {
-            return AccountManager.GetAccount (id);
+            return accountManager.GetAccount (id);
         }
     }
 
