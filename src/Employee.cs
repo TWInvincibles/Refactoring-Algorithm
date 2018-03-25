@@ -14,6 +14,7 @@ namespace refactoring {
         }
     }
     public class Manager : Employee {
+        public int Bonus { get; set; }
         public Manager () { }
         public override int GetPayroll () {
             return MonthlySalary + Commission + Bonus;
@@ -21,30 +22,10 @@ namespace refactoring {
     }
 
     public class Employee {
-        protected Employee () { }
-
-        private Employee (int employeeType) { }
-
-        public static Employee Create (int employeeType) {
-            switch (employeeType) {
-                case Employee.ENGINEER:
-                    return new Engineer ();
-                case Employee.SALESMAN:
-                    return new Salesman ();
-                case Employee.MANAGER:
-                    return new Manager ();
-                default:
-                    return new Employee ();
-            }
-        }
-
-        public const int ENGINEER = 0;
-        public const int SALESMAN = 1;
-        public const int MANAGER = 2;
+        public Employee () { }
 
         public int MonthlySalary { get; set; }
         public int Commission { get; set; }
-        public int Bonus { get; set; }
 
         public virtual int GetPayroll () {
             throw new Exception ("Incorrect Employee Code");
