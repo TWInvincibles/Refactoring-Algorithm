@@ -2,8 +2,12 @@ using System;
 
 namespace refactoring {
     public class Employee {
-        public Employee (int employeeType) {
+        private Employee (int employeeType) {
             this.employeeType = employeeType;
+        }
+
+        public static Employee Create (int employeeType) {
+            return new Employee (employeeType);
         }
 
         private int employeeType;
