@@ -1,16 +1,42 @@
 using System;
 
 namespace refactoring {
+    public class Engineer : Employee {
+        public Engineer () { }
+        public override int EmployeeType => Employee.ENGINEER;
+    }
+    public class Salesman : Employee {
+        public Salesman () { }
+        public override int EmployeeType => Employee.SALESMAN;
+    }
+    public class Manager : Employee {
+        public Manager () { }
+        public override int EmployeeType => Employee.MANAGER;
+    }
+
     public class Employee {
+        protected Employee () {
+            this.EmployeeType = EmployeeType;
+        }
+
         private Employee (int employeeType) {
-            this.employeeType = employeeType;
+            EmployeeType = employeeType;
         }
 
         public static Employee Create (int employeeType) {
-            return new Employee (employeeType);
+            switch (employeeType) {
+                case Employee.ENGINEER:
+                    return new Engineer ();
+                case Employee.SALESMAN:
+                    return new Salesman ();
+                case Employee.MANAGER:
+                    return new Manager ();
+                default:
+                    return new Employee (employeeType);
+            }
         }
 
-        private int employeeType;
+        public virtual int EmployeeType { get; private set; }
         public const int ENGINEER = 0;
         public const int SALESMAN = 1;
         public const int MANAGER = 2;
@@ -20,7 +46,7 @@ namespace refactoring {
         public int Bonus { get; set; }
 
         public int GetPayroll () {
-            switch (employeeType) {
+            switch (EmployeeType) {
                 case ENGINEER:
                     return MonthlySalary;
                 case SALESMAN:
