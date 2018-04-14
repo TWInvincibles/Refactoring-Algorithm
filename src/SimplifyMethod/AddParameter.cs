@@ -29,12 +29,9 @@ namespace refactoring {
         public long StudentId { get; private set; }
     }
     public class Student {
-        public Student (long id, string name) {
+        public Student (long id) {
             this.Id = id;
-            this.Name = name;
         }
-
         public long Id { get; private set; }
-        public string Name { get; private set; }
     }
 }

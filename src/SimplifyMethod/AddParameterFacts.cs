@@ -12,7 +12,7 @@
                      new Appointment (2, "English", DateTime.Today),
              });
 
-             var student = new Student (1, "Kitty");
+             var student = new Student (1);
              var appointments = calendar.FindAppointments (student.Id, DateTime.Today);
 
              Assert.Equal (2, appointments.Count);
@@ -33,7 +33,7 @@
                      new Appointment (1, "DevOps", DateTime.Today.AddDays (1)),
              });
 
-             var student = new Student (1, "Kitty");
+             var student = new Student (1);
              var appointments = calendar.FindAppointments (student.Id, DateTime.Today);
 
              Assert.Equal (2, appointments.Count);
@@ -50,7 +50,7 @@
                      new Appointment (1, "DevOps", DateTime.Today),
              });
 
-             var student = new Student (1, "Kitty");
+             var student = new Student (1);
              var appointments = calendar.FindAppointments (student.Id, DateTime.Today, "DevOps");
 
              Assert.Equal (1, appointments.Count);
