@@ -48,7 +48,7 @@
          [Fact]
          public void Finds_no_criminal_amongst_innocent_people () {
              securityChecker.CheckSecurity (new [] { "Dan", "Den", "Jan", "Jen" });
-             Assert.Equal ("", blockedCrimincal);
+             Assert.Equal (null, blockedCrimincal);
              Assert.False (alertSent);
          }
      }

@@ -15,17 +15,18 @@ namespace refactoring {
 
         public void CheckSecurity (IEnumerable<string> people) {
             var found = FoundCriminal (people);
-            criminalBlocker.BlockCriminal (found);
-        }
 
+            if (!(found == "")) {
+                criminalBlocker.BlockCriminal (found);
+                SendAlert ();
+            }
+        }
         private string FoundCriminal (IEnumerable<string> people) {
             foreach (var person in people) {
                 if (person == "Don") {
-                    SendAlert ();
                     return "Don";
                 }
                 if (person == "John") {
-                    SendAlert ();
                     return "John";
                 }
             }
@@ -38,6 +39,6 @@ namespace refactoring {
     }
 
     public interface ICriminalBlocker {
-        void BlockCriminal (string miscreant);
+        void BlockCriminal (string criminal);
     }
 }
