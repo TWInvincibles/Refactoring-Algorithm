@@ -40,5 +40,22 @@
              Assert.Equal ("Machine Learning", appointments[0].CourseName);
              Assert.Equal ("Design Thinking", appointments[1].CourseName);
          }
+
+         [Fact]
+         public void should_get_appointment_for_correct_course () {
+             var calendar = new Calendar (new List<Appointment> () {
+                 new Appointment (1, "English", DateTime.Today),
+                     new Appointment (1, "Machine Learning", DateTime.Today),
+                     new Appointment (1, "Design Thinking", DateTime.Today),
+                     new Appointment (1, "DevOps", DateTime.Today),
+             });
+
+             var student = new Student (1, "Kitty");
+             var appointments = calendar.FindAppointments (student.Id, DateTime.Today, "DevOps");
+
+             Assert.Equal (1, appointments.Count);
+             Assert.Equal ("DevOps", appointments[0].CourseName);
+         }
+
      }
  }

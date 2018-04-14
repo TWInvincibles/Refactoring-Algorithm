@@ -9,13 +9,16 @@ namespace refactoring {
             this.Appointments = appointments;
         }
         public List<Appointment> Appointments { get; private set; }
-        public List<Appointment> FindAppointments (long studentId, DateTime dateTime) {
-            return Appointments.Where (a => a.StudentId == studentId && a.Date == dateTime.Date).ToList ();
+        public List<Appointment> FindAppointments (long studentId, DateTime dateTime, string courseName = null) {
+            var appointments = Appointments.Where (a => a.StudentId == studentId && a.Date == dateTime.Date);
+            if (string.IsNullOrEmpty (courseName)) {
+                return appointments.ToList ();
+            }
+            return appointments.Where (a => a.CourseName == courseName).ToList ();
         }
     }
     public class Appointment {
-        public Appointment(long studentId, string courseName, DateTime date)
-        {
+        public Appointment (long studentId, string courseName, DateTime date) {
             this.StudentId = studentId;
             this.CourseName = courseName;
             this.Date = date;
