@@ -57,6 +57,22 @@
          }
 
          [Fact]
+         public void can_create_salesman_with_information () {
+             var salesman = new Salesman ("AB100", 10000, 5000);
+
+             Assert.Equal ("Role: Salesman - EmployeeId: AB100", salesman.GetEmployeeId ());
+             Assert.Equal (15000, salesman.GetPayroll ());
+         }
+
+         [Fact]
+         public void can_create_manager_with_information () {
+             var manager = new Manager ("AB101", 15000, 5000, 5000);
+
+             Assert.Equal ("Role: Manager - EmployeeId: AB101", manager.GetEmployeeId ());
+             Assert.Equal (25000, manager.GetPayroll ());
+         }
+
+         [Fact]
          public void should_throw_exception_with_employees_not_able_to_handle () {
              var employee = new Employee ();
              Assert.Throws<Exception> (() => employee.GetPayroll ());

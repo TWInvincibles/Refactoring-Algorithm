@@ -9,11 +9,22 @@ namespace refactoring {
     }
     public class Salesman : Employee {
         public Salesman () { }
+        public Salesman (string employeeId, int monthlySalary, int commission) {
+            this.EmployeeId = employeeId;
+            this.MonthlySalary = monthlySalary;
+            this.Commission = commission;
+        }
         public override int GetPayroll () {
             return MonthlySalary + Commission;
         }
     }
     public class Manager : Employee {
+        public Manager (string employeeId, int monthlySalary, int commission, int bonus) {
+            this.EmployeeId = employeeId;
+            this.MonthlySalary = monthlySalary;
+            this.Commission = commission;
+            this.Bonus = bonus;
+        }
         public int Bonus { get; set; }
         public Manager () { }
         public override int GetPayroll () {
