@@ -11,7 +11,7 @@ namespace refactoring {
         public Salesman () { }
         public Salesman (string employeeId, int monthlySalary, int commission) : base (employeeId, monthlySalary, commission) { }
         public override int GetPayroll () {
-            return MonthlySalary + Commission;
+            return MonthlySalary + Commission + GetPushMoney(); 
         }
     }
     public class Manager : Employee {
@@ -35,7 +35,11 @@ namespace refactoring {
         public string EmployeeId { get; set; }
         public int MonthlySalary { get; set; }
         public int Commission { get; set; }
-
+        public int SalesAmount { get; set; }
+        public float PushMoneyRate { get; set; }
+        public int GetPushMoney () {
+            return (int) (SalesAmount * PushMoneyRate);
+        }
         public virtual int GetPayroll () {
             throw new Exception ("Incorrect Employee Code");
         }

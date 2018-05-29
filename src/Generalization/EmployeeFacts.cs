@@ -73,6 +73,24 @@
          }
 
          [Fact]
+         public void can_get_the_push_money_of_sales_man () {
+             var salesman = new Salesman ("AB100", 10000, 5000);
+             salesman.SalesAmount = 200000;
+             salesman.PushMoneyRate = 0.2f;
+
+             Assert.Equal (40000, salesman.GetPushMoney ());
+         }
+
+         [Fact]
+         public void sales_man_can_push_money_as_payroll () {
+             var salesman = new Salesman ("AB100", 10000, 5000);
+             salesman.SalesAmount = 200000;
+             salesman.PushMoneyRate = 0.2f;
+
+             Assert.Equal (55000, salesman.GetPayroll ());
+         }
+
+         [Fact]
          public void should_throw_exception_with_employees_not_able_to_handle () {
              var employee = new Employee ();
              Assert.Throws<Exception> (() => employee.GetPayroll ());
