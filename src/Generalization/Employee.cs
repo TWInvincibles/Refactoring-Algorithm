@@ -9,20 +9,13 @@ namespace refactoring {
     }
     public class Salesman : Employee {
         public Salesman () { }
-        public Salesman (string employeeId, int monthlySalary, int commission) {
-            this.EmployeeId = employeeId;
-            this.MonthlySalary = monthlySalary;
-            this.Commission = commission;
-        }
+        public Salesman (string employeeId, int monthlySalary, int commission) : base (employeeId, monthlySalary, commission) { }
         public override int GetPayroll () {
             return MonthlySalary + Commission;
         }
     }
     public class Manager : Employee {
-        public Manager (string employeeId, int monthlySalary, int commission, int bonus) {
-            this.EmployeeId = employeeId;
-            this.MonthlySalary = monthlySalary;
-            this.Commission = commission;
+        public Manager (string employeeId, int monthlySalary, int commission, int bonus) : base (employeeId, monthlySalary, commission) {
             this.Bonus = bonus;
         }
         public int Bonus { get; set; }
@@ -34,8 +27,12 @@ namespace refactoring {
 
     public class Employee {
         public Employee () { }
+        public Employee (string employeeId, int monthlySalary, int commission) {
+            this.EmployeeId = employeeId;
+            this.MonthlySalary = monthlySalary;
+            this.Commission = commission;
+        }
         public string EmployeeId { get; set; }
-
         public int MonthlySalary { get; set; }
         public int Commission { get; set; }
 
