@@ -9,16 +9,20 @@ namespace refactoring {
     }
     public class Salesman : Employee {
         public Salesman () { }
+        public string EmployeeId { get; set; }
         public override int GetPayroll () {
             return MonthlySalary + Commission;
         }
+        public string GetEmployeeId () => $"Role: Salesman - EmployeeId: {EmployeeId}";
     }
     public class Manager : Employee {
         public int Bonus { get; set; }
+        public string EmployeeId { get; set; }
         public Manager () { }
         public override int GetPayroll () {
             return MonthlySalary + Commission + Bonus;
         }
+        public string GetEmployeeId () => $"Role: Manager- EmployeeId: {EmployeeId}";
     }
 
     public class Employee {

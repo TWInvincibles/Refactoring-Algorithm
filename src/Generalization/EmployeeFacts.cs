@@ -37,6 +37,26 @@
          }
 
          [Fact]
+         public void should_get_employee_id_for_sales_man () {
+             var salesman = new Salesman ();
+             salesman.EmployeeId = "AB100";
+
+             var employeeId = salesman.GetEmployeeId ();
+
+             Assert.Equal ("Role: Salesman - EmployeeId: AB100", employeeId);
+         }
+
+         [Fact]
+         public void should_get_employee_id_for_manager () {
+             var manager = new Manager ();
+             manager.EmployeeId = "AB101";
+
+             var employeeId = manager.GetEmployeeId ();
+
+             Assert.Equal ("Role: Manager- EmployeeId: AB101", employeeId);
+         }
+
+         [Fact]
          public void should_throw_exception_with_employees_not_able_to_handle () {
              var employee = new Employee ();
              Assert.Throws<Exception> (() => employee.GetPayroll ());
