@@ -12,7 +12,7 @@ namespace refactoring {
         public override int GetPayroll () {
             return MonthlySalary + Commission;
         }
-        public string GetEmployeeId () => $"Role: Salesman - EmployeeId: {EmployeeId}";
+        public string GetEmployeeId () => $"Role: {this.GetType().Name} - EmployeeId: {EmployeeId}";
     }
     public class Manager : Employee {
         public int Bonus { get; set; }
@@ -20,7 +20,7 @@ namespace refactoring {
         public override int GetPayroll () {
             return MonthlySalary + Commission + Bonus;
         }
-        public string GetEmployeeId () => $"Role: Manager- EmployeeId: {EmployeeId}";
+        public string GetEmployeeId () => $"Role: {this.GetType().Name}- EmployeeId: {EmployeeId}";
     }
 
     public class Employee {
