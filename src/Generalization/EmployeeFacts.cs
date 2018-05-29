@@ -53,7 +53,7 @@
 
              var employeeId = manager.GetEmployeeId ();
 
-             Assert.Equal ("Role: Manager- EmployeeId: AB101", employeeId);
+             Assert.Equal ("Role: Manager - EmployeeId: AB101", employeeId);
          }
 
          [Fact]

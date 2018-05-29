@@ -12,7 +12,6 @@ namespace refactoring {
         public override int GetPayroll () {
             return MonthlySalary + Commission;
         }
-        public string GetEmployeeId () => $"Role: {this.GetType().Name} - EmployeeId: {EmployeeId}";
     }
     public class Manager : Employee {
         public int Bonus { get; set; }
@@ -20,7 +19,6 @@ namespace refactoring {
         public override int GetPayroll () {
             return MonthlySalary + Commission + Bonus;
         }
-        public string GetEmployeeId () => $"Role: {this.GetType().Name}- EmployeeId: {EmployeeId}";
     }
 
     public class Employee {
@@ -33,5 +31,6 @@ namespace refactoring {
         public virtual int GetPayroll () {
             throw new Exception ("Incorrect Employee Code");
         }
+        public string GetEmployeeId () => $"Role: {this.GetType().Name} - EmployeeId: {EmployeeId}";
     }
 }
