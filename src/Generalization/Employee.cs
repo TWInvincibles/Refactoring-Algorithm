@@ -9,7 +9,6 @@ namespace refactoring {
     }
     public class Salesman : Employee {
         public Salesman () { }
-        public string EmployeeId { get; set; }
         public override int GetPayroll () {
             return MonthlySalary + Commission;
         }
@@ -17,7 +16,6 @@ namespace refactoring {
     }
     public class Manager : Employee {
         public int Bonus { get; set; }
-        public string EmployeeId { get; set; }
         public Manager () { }
         public override int GetPayroll () {
             return MonthlySalary + Commission + Bonus;
@@ -27,6 +25,7 @@ namespace refactoring {
 
     public class Employee {
         public Employee () { }
+        public string EmployeeId { get; set; }
 
         public int MonthlySalary { get; set; }
         public int Commission { get; set; }
